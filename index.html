@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navbar bg-primary text-primary-content">
+          <button class="btn btn-ghost text-3xl mx-auto">
+            Reedisha Stock Calculations <sub class="text-xs">by MURSALIN</sub>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!--  -->
+      <section class="my-5">
+        <div class="overflow-x-auto">
+          <table class="table">
+            <!-- head -->
+            <thead>
+              <tr class="font-bold text-xl text-green-700">
+                <th>Status</th>
+                <th>Products Name</th>
+                <th>ওপেনিং স্টক</th>
+                <th>পণ্য গ্রহণ</th>
+                <th>আই এম এস</th>
+                <th>ক্লোজিং স্টক</th>
+                <th>Calculations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- row 1 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-1" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="font-bold">চকো ফান</div>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-1"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-1"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-1"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-1">****</span>
+                  </td>
+                  <td>
+                    <button
+                      onclick="calcForRow(1)"
+                      id="btn-choco"
+                      class="btn btn-primary"
+                    >
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 2 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-2" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="font-bold">ক্রিম ফান</div>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-2"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-2"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-2"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-2">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(2)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 3 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-3" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="font-bold">মালাই ফান</div>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-3"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-3"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-3"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-3">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(3)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 4 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-4" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="font-bold">গ্লুকোজ পাওয়ার</div>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-4"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-4"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-4"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-4">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(4)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 5 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-5" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">সুইট রাস্ক</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-5"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-5"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-5"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-5">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(5)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 6 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-6" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">ড্রাই কেক মিনি ক্লাসিক</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-6"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-6"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-6"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-6">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(6)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 7 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-7" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">ড্রাই কেক মিনি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-7"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-7"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-7"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-7">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(7)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 8 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-8" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">এক্সট্রিম এনার্জি (চেইন)</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-8"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-8"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-8"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-8">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(8)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 9 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-9" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">লেক্সাস</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-9"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-9"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-9"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-9">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(9)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 10 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-10" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">চকো ফান (স্ট্যান্ডার্ড)</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-10"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-10"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-10"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-10">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(10)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 11 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-11" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">মিল্ক বাইটস্ ইকোনমি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-11"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-11"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-11"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-11">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(11)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 12 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-12" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">এলাচ বাইটস্ ইকোনমি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-12"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-12"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-12"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-12">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(12)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 13 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-13" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">কোকোনাট বাইটস্ ইকোনমি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-13"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-13"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-13"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-13">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(13)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 14 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-14" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">জাফা অরেঞ্জ</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-14"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-14"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-14"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-14">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(14)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 15 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-15" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">এক্সট্রিম এনার্জি ইকোনমি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-15"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-15"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-15"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-15">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(15)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 16 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-16" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">এক্সট্রিম এনার্জি</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-16"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-16"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-16"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-16">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(16)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 17 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-17" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">হিপহপ</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-17"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-17"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-17"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-17">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(17)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 18 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-18" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">টপ চয়েস</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-18"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-18"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-18"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-18">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(18)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 19 -->
+              <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-19" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                      <div>
+                        <div class="font-bold">লোটাস</div>
+                      </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-19"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-19"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-19"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-19">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(19)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div>
+              <!-- row 20 -->
+              <!-- <div>
+                <tr>
+                  <th>
+                    <label>
+                      <input id="box-20" type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="avatar">
+                        <div class="mask mask-squircle h-12 w-12"></div>
+                      </div>
+                      <div>
+                        <div class="font-bold"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="opening-stock-20"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="added-stock-20"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="border w-[200px] py-3 pl-2"
+                      type="number"
+                      name=""
+                      id="ims-20"
+                      placeholder="Enter amount"
+                    />
+                  </td>
+                  <td class="text-red-800 font-bold">
+                    <span id="closing-amount-20">****</span>
+                  </td>
+                  <td>
+                    <button onclick="calcForRow(20)" class="btn btn-primary">
+                      Calculate
+                    </button>
+                  </td>
+                </tr>
+              </div> -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./Scripts/utilities.js"></script>
+    <script src="./Scripts/script.js"></script>
+  </body>
+</html>
